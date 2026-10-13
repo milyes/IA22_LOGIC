@@ -1,0 +1,10 @@
+AIMEDIXAL_Executive_Summary*.pdf
+docs/strategie/*.pdf
+nsp-zcore-v11/
+nersecurepro/
+02_AGENTS_IA/
+downloads/
+android-rclone-zcore/
+attack.py
+zcore.log
+*.log
