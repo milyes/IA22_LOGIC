@@ -1,0 +1,56 @@
+NetSecurePro IA - Z-CORE ENTERPRISE License
+Version 22.0.0 - Enterprise Confidential
+
+Copyright (c) 2025 Zoubirou Mohammed Ilyes
+ORCID: 0009-0007-7571-3178
+NetSecurePro IA © 2025 - All Rights Reserved
+
+================================================================
+LICENSE ENTERPRISE - Z-CORE / IA22_LOGIC
+================================================================
+
+1. GRANT
+   This software (Z-CORE ENTERPRISE, IA22_LOGIC module v22.0.0,
+   including source code, documentation, ISO, APK, hardening scripts,
+   SIEM integrations, Docker/K8s manifests) is licensed for use
+   under the following terms.
+
+2. COMMUNITY EDITION
+   - Local use only
+   - DLP, Prompt Firewall, basic code inspection
+   - Non-commercial, research allowed
+   - Attribution required: "Powered by NetSecurePro Z-CORE"
+
+3. ENTERPRISE EDITION
+   - On-premise deployment allowed
+   - Includes: Agent Guard, Secure RAG, Model Scanner, SIEM (Syslog/CEF/LEEF/Webhook), RBAC/ABAC, Vault/KMS integration, Audit, Incident Response
+   - Commercial use allowed for licensed tenant
+   - Tenant isolation mandatory
+   - Support professionnel inclus selon contrat
+
+4. MANAGED EDITION
+   - API Gateway managée par NetSecurePro
+   - Multi-tenant, billing à l'usage, SLA
+   - Supervision incluse
+
+5. RESTRICTIONS
+   - No redistribution without written consent
+   - No reverse engineering of Vault/KMS integrations
+   - Secrets must not be logged
+   - ISO image must retain hardening.sh integrity
+
+6. WARRANTY DISCLAIMER
+   - Provided "as is" - no guarantee of eliminating all AI risks
+   - Recall 66.7% on injection is known limitation - roadmap for improvement
+   - Performance metrics (p50 0.311ms) measured on reference hardware
+   - Must specify hardware/OS/Python version in commercial sheets
+
+7. COMMERCIAL
+   - Tarifs indicatifs jusqu'à validation coût infra/support/marché
+   - Contact: NetSecurePro IA - Zoubirou Mohammed Ilyes
+
+8. THIRD-PARTY
+   - Ubuntu 24.04 base for VM, Redis, Postgres are under their own licenses
+
+Date: 2026-10-13
+Version: 22.0.0
