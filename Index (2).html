@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Z-CORE ENTERPRISE v22.0.0 - IA22_LOGIC</title>
+<meta name="author" content="Zoubirou Mohammed Ilyes - ORCID 0009-0007-7571-3178">
+<style>
+:root{--bg:#020617;--card:#0f172a;--border:#1e293b;--primary:#3b82f6;--accent:#8b5cf6;--text:#e2e8f0;--muted:#94a3b8}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui;background:var(--bg);color:var(--text);line-height:1.6}
+header{background:linear-gradient(135deg,#1e40af 0%,#7c3aed 100%);padding:80px 20px;text-align:center}
+header h1{font-size:42px;margin:0 0 10px}header p{font-size:18px;opacity:0.9;margin:6px}
+.container{max-width:1100px;margin:auto;padding:30px 20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin:18px 0}
+.badge{display:inline-block;background:#1e293b;border:1px solid #334155;padding:6px 14px;border-radius:999px;margin:4px;font-size:12px}
+.btn{display:inline-block;background:var(--primary);color:white;padding:12px 20px;border-radius:10px;text-decoration:none;margin:6px;font-weight:600}
+.btn-accent{background:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+pre{background:#0f172a;border:1px solid #1e293b;padding:16px;border-radius:10px;overflow:auto;font-size:13px}
+h2{color:#93c5fd;margin-top:30px}h3{color:#c4b5fd}
+.table{width:100%;border-collapse:collapse} .table th{background:#1e293b;text-align:left;padding:10px} .table td{padding:10px;border-top:1px solid #1e293b}
+.timeline{border-left:3px solid #3b82f6;padding-left:20px;margin-left:10px}
+.timeline div{margin:10px 0}
+</style>
+</head>
+<body>
+<header>
+<h1>Z-CORE ENTERPRISE</h1>
+<p>AI Security Gateway & Zero-Trust Runtime Guard</p>
+<p>IA22_LOGIC v22.0.0 — NetSecurePro IA</p>
+<p>Zoubirou Mohammed Ilyes | ORCID: 0009-0007-7571-3178 | © 2025</p>
+<div style="margin-top:20px">
+<span class="badge">Zero-Trust</span><span class="badge">Python 3.12+</span><span class="badge">Stdlib Only</span><span class="badge">Multi-SIEM</span><span class="badge">Enterprise</span>
+</div>
+</header>
+<div class="container">
+
+<div class="card" style="text-align:center">
+<h2>🚀 Démo Live</h2>
+<p>Module IA22_LOGIC initialisé et opérationnel. Tous les artefacts disponibles.</p>
+<a class="btn" href="../dist/Z-CORE_ENTERPRISE_DOSSIER_COMPLET_FINAL_v22.0.0.pdf" download>📄 Dossier Complet PDF</a>
+<a class="btn btn-accent" href="../dist/IA22_LOGIC_v22.0.0.zip" download>📦 ZIP Package</a>
+<a class="btn" href="../dist/IA22_LOGIC.apk" download>📱 APK</a>
+<a class="btn btn-accent" href="../dist/NetSecurePro_IA22_LOGIC.iso" download>💿 ISO VM</a>
+</div>
+
+<h2>1. Executive Summary</h2>
+<div class="card">
+<p>Z-CORE Enterprise est une passerelle de sécurité pour applications d'IA générative. Elle contrôle flux utilisateurs ↔ apps métier ↔ agents autonomes ↔ modèles locaux/distants. Approche Zero-Trust : inspection entrées, DLP, contrôle tool calling, inspection sorties, journalisation corrélée, intégrité modèles et RAG. Objectif : réduire et rendre mesurable la surface de risque avec contrôles déterministes et traçabilité complète.</p>
+</div>
+
+<h2>2. Architecture</h2>
+<div class="card">
+<pre>
+NETSECUREPRO
+   │
+Z-CORE AI Gateway
+   │
+├─ Identity (RBAC/ABAC) + Tenant Isolation
+├─ DLP / Vault (KMS/HSM)
+├─ Prompt Firewall (Rules+Structure+Entropy)
+├─ Policy Engine
+├─ Agent Guard (Tool Policy)
+├─ Secure RAG (ACL + provenance + sha256)
+├─ Model Scanner (Hash + Registry)
+├─ LLM / Agent Runtime
+├─ Output Guard (AST)
+├─ Runtime Detection
+├─ Risk Engine (non-linéaire)
+├─ Incident Correlator
+└─ SOC / SIEM (Syslog/CEF/LEEF/Webhook/Ticketing)
+</pre>
+</div>
+
+<h2>3. Threat Detection & Incident Response</h2>
+<div class="card">
+<h3>Corrélation</h3>
+<div class="timeline">
+<div>Prompt suspect (evt-1001)</div>
+<div>↓ Accès document sensible (evt-1002)</div>
+<div>↓ Tool call inhabituel (evt-1003)</div>
+<div>↓ Tentative exfiltration (evt-1004)</div>
+<div>↓ INCIDENT CORRELATOR → Incident #1042</div>
+</div>
+<h3>Risk Engine</h3>
+<pre>Prompt Risk 25 + DLP Risk 20 + Tool Risk 30 + RAG Risk 10 + Behavior Risk 25 = 110 → Normalisé 0-100
+0-29 LOW → log
+30-59 MEDIUM → surveillance
+60-79 HIGH → blocage + alerte
+80-100 CRITICAL → blocage + isolation réversible + incident
+</pre>
+</div>
+
+<h2>4. Multi-SIEM - Étape 16</h2>
+<div class="card">
+<div class="grid">
+<div><h3>Syslog RFC5424</h3><pre>&lt;187&gt;1 2026-05-13T12:30:00Z z-core-host Z-CORE - - [zcore@32473 tenant="company-a" risk="75"] event=tool_decision BLOCK</pre></div>
+<div><h3>CEF</h3><pre>CEF:0|NetSecurePro|Z-CORE|22.0.0|tool_decision:database_query|BLOCK|7|tenantId=company-a act=BLOCK cn1=75</pre></div>
+<div><h3>LEEF</h3><pre>LEEF:2.0|NetSecurePro|Z-CORE|22.0.0|tool_decision|	devTime=...	sev=HIGH	act=BLOCK</pre></div>
+<div><h3>Webhook</h3><pre>POST /hec
+X-ZCore-Signature: HMAC-SHA256
+{"version":"1.0","source":"z-core","event":{...}}</pre></div>
+</div>
+<p>Router: SIEMRouter(syslog=True, cef=True, leef=True, webhooks=[...]). Queue disque si SIEM down, retry exponentiel, batch 100/5s, TLS/mTLS.</p>
+</div>
+
+<h2>5. Hardening VM - Étape 17</h2>
+<div class="card">
+<table class="table">
+<tr><th>Contrôle</th><th>Implémentation</th></tr>
+<tr><td>Firewall</td><td>UFW deny incoming, allow 22/443/8443</td></tr>
+<tr><td>SSH</td><td>PermitRootLogin no, PasswordAuthentication no, key only</td></tr>
+<tr><td>Kernel</td><td>ASLR, rp_filter, syncookies, suid_dumpable=0</td></tr>
+<tr><td>Isolation</td><td>systemd PrivateTmp, ProtectSystem=strict, NoNewPrivileges</td></tr>
+<tr><td>FS</td><td>/tmp noexec,nosuid,nodev, /opt/netsecurepro/vault 700</td></tr>
+<tr><td>Audit</td><td>auditd rules sur IA22_LOGIC + vault + sysctl.d</td></tr>
+</table>
+</div>
+
+<h2>6. Déploiement Enterprise - Étape 18</h2>
+<div class="card">
+<h3>Docker Compose</h3>
+<pre>docker-compose -f enterprise/deploy/docker-compose.enterprise.yml up -d
+curl -k https://localhost:8443/healthz</pre>
+<h3>Kubernetes</h3>
+<pre>kubectl apply -f enterprise/deploy/kubernetes.yaml
+kubectl -n z-core logs -f deployment/z-core-gateway</pre>
+<h3>VM ISO</h3>
+<pre>xorriso -as mkisofs -r -V "NetSecurePro Z-CORE 22.0.0" -o NetSecurePro-ZCORE-22.0.0.iso /tmp/iso-build
+# Autoinstall -> /opt/netsecurepro/IA22_LOGIC + hardening.sh + enable z-core.service</pre>
+</div>
+
+<h2>7. Validation & Benchmark</h2>
+<div class="card">
+<table class="table">
+<tr><th>Métrique</th><th>Valeur</th></tr>
+<tr><td>Runtime</td><td>Python 3.14.6 / target 3.12+</td></tr>
+<tr><td>Stdlib deps</td><td>0</td></tr>
+<tr><td>Injection Precision</td><td>100.0%</td></tr>
+<tr><td>Injection Recall</td><td>66.7% (axe amélioration)</td></tr>
+<tr><td>DLP Accuracy</td><td>100.0%</td></tr>
+<tr><td>p50 / p95 / p99</td><td>0.311 / 0.378 / 0.409 ms</td></tr>
+<tr><td>Peak alloc</td><td>0.034 MB core</td></tr>
+</table>
+</div>
+
+<h2>8. Roadmap</h2>
+<div class="card">
+<p><b>Phase 1 Core:</b> Gateway, DLP, Prompt Firewall, Policy, Audit<br>
+<b>Phase 2 Agent Security:</b> Agent Guard, Tool Policy, Runtime Detection, Risk Engine<br>
+<b>Phase 3 Supply Chain:</b> Model Scanner, Registry, Secure RAG, Doc Integrity<br>
+<b>Phase 4 Enterprise:</b> Identity RBAC/ABAC, Multi-tenancy, Vault/KMS, SIEM, Incident Response<br>
+<b>Phase 5 NetSecurePro-Sec:</b> Dataset → QLoRA → Eval indépendante → Quant → Z-PUCE</p>
+<p><b>Positionnement:</b> NetSecurePro = AI Security Platform, Z-CORE = Gateway, Z-PUCE = Runtime Control Plane, NetSecurePro-Sec = modèle cybersécurité.</p>
+</div>
+
+<div class="card" style="text-align:center">
+<h3>Déploiement GitHub Pages</h3>
+<pre>git init
+git remote add origin https://github.com/USERNAME/IA22_LOGIC.git
+git add .
+git commit -m "deploy IA22_LOGIC v22.0.0 Z-CORE ENTERPRISE"
+git branch -M main
+git push -u origin main
+# GitHub -> Settings -> Pages -> Source: /docs branch main -> Save
+# URL: https://USERNAME.github.io/IA22_LOGIC/
+</pre>
+<p>Ce dossier docs/ est prêt. Poussez sur GitHub et activez Pages.</p>
+<a class="btn" href="https://github.com/new" target="_blank">Créer Repo GitHub</a>
+</div>
+
+</div>
+<footer style="text-align:center;padding:30px;color:var(--muted);font-size:12px">NetSecurePro IA © 2025 - Zoubirou Mohammed Ilyes - ORCID: 0009-0007-7571-3178 - Z-CORE ENTERPRISE v22.0.0</footer>
+</body>
+</html>
