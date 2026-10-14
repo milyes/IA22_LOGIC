@@ -9,7 +9,7 @@
 
 **Auteur:** Zoubirou Mohammed Ilyes — ORCID: 0009-0007-7571-3178  
 **Copyright:** NetSecurePro IA © 2025  
-**Live Demo:** https://USERNAME.github.io/IA22_LOGIC/ *(remplace USERNAME)*
+**Live Demo:** https://milyes.github.io/IA22_LOGIC/ *(remplace USERNAME)*
 
 ---
 
