@@ -1,0 +1,21 @@
+tenant_id: company-a
+version: 22.0.0
+policy_engine:
+  mode: DENY_BY_DEFAULT_FOR_TOOLS
+dlp:
+  enabled: true
+  vault_backend: kms
+prompt_firewall:
+  threshold: 0.65
+risk_engine:
+  thresholds:
+    LOW: 29
+    MEDIUM: 59
+    HIGH: 79
+    CRITICAL: 100
+siem:
+  enabled: true
+  formats: [syslog, cef, leef, webhook]
+audit:
+  immutable: true
+  retention_days: 90

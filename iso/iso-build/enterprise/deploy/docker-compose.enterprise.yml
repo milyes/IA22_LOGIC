@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  z-core-gateway:
+    image: netsecurepro/z-core:22.0.0
+    ports:
+      - "8443:8443"
+      - "514:514/udp"
+    volumes:
+      - zcore-logs:/var/log/z-core
+      - zcore-vault:/opt/netsecurepro/vault
+    environment:
+      - TENANT_ID=company-a
+      - SIEM_ENDPOINT=https://siem.company.local/hec
+    restart: always
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+  z-core-redis:
+    image: redis:7-alpine
+    volumes:
+      - redis-data:/data
+  z-core-postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: zcore
+volumes:
+  zcore-logs:
+  zcore-vault:
+  redis-data:
+  pg-data:

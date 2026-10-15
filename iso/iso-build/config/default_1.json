@@ -1,0 +1,40 @@
+{
+  "module": "IA22_LOGIC",
+  "version": "22.0.0",
+  "author": "Zoubirou Mohammed Ilyes",
+  "orcid": "0009-0007-7571-3178",
+  "copyright": "NetSecurePro IA © 2025",
+  "runtime": "Python 3.12+",
+  "mode": "zero-trust",
+  "components": [
+    "DLP",
+    "PromptFirewall",
+    "AgentGuard",
+    "SecureRAG",
+    "ModelScanner",
+    "OutputGuard",
+    "RiskEngine",
+    "IncidentCorrelator"
+  ],
+  "defaults": {
+    "policy_engine": "ALLOW_BY_DEFAULT_WITH_REVIEW",
+    "dlp_action": "REDACT",
+    "prompt_firewall_threshold": 0.65,
+    "risk_thresholds": {
+      "LOW": 29,
+      "MEDIUM": 59,
+      "HIGH": 79,
+      "CRITICAL": 100
+    },
+    "audit_format": "JSON",
+    "siem_formats": [
+      "SYSLOG",
+      "CEF",
+      "LEEF",
+      "WEBHOOK"
+    ]
+  },
+  "tenant_isolation": true,
+  "vault_backend": "local_kms_sim",
+  "initialized_at": "2026-10-14T03:55:58.215158Z"
+}

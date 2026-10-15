@@ -1,15 +1,15 @@
 # Z-CORE ENTERPRISE — AI Security Gateway & Zero-Trust Runtime Guard
 ### IA22_LOGIC v22.0.0 | NetSecurePro IA
 
-[[Version](https://img.shields.io/badge/version-22.0.0-blue)](https://github.com/ilyyesl/IA22_LOGIC)
+[[Version](https://img.shields.io/badge/version-22.0.0-blue)](https://github.com/milyes/IA22_LOGIC)
 [[Python](https://img.shields.io/badge/python-3.12%2B-yellow)](https://python.org)
-[[Zero-Trust](https://img.shields.io/badge/Zero--Trust-enabled-red)](https://github.com/ilyyesl/IA22_LOGIC)
-[[SIEM](https://img.shields.io/badge/SIEM-Syslog%2FCEF%2FLEEF%2FWebhook-green)](https://github.com/ilyyesl/IA22_LOGIC)
+[[Zero-Trust](https://img.shields.io/badge/Zero--Trust-enabled-red)](https://github.com/milyes/IA22_LOGIC)
+[[SIEM](https://img.shields.io/badge/SIEM-Syslog%2FCEF%2FLEEF%2FWebhook-green)](https://github.com/milyes/IA22_LOGIC)
 [[License](https://img.shields.io/badge/license-Enterprise-lightgrey)](LICENSE)
 
 **Auteur:** Zoubirou Mohammed Ilyes — ORCID: 0009-0007-7571-3178  
 **Copyright:** NetSecurePro IA © 2025  
-**Live Demo:** https://USERNAME.github.io/IA22_LOGIC/ *(remplace USERNAME)*
+**Live Demo:** https://milyes.github.io/IA22_LOGIC/ *(remplace milyes)*
 
 ---
 
@@ -268,7 +268,7 @@ docs/
 ```bash
 git add .
 git commit -m "deploy IA22_LOGIC v22.0.0 Z-CORE ENTERPRISE"
-git remote add origin https://github.com/USERNAME/IA22_LOGIC.git
+git remote add origin https://github.com/milyes/IA22_LOGIC.git
 git branch -M main
 git push -u origin main
 # GitHub Settings -> Pages -> Source: /docs on branch main
