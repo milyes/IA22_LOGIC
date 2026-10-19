@@ -1,0 +1,11 @@
+{
+  "benchmark": "Z-CORE G7",
+  "core": "NANS-V9",
+  "cycles": 50000,
+  "duration_ms": 316,
+  "p99_ms": 7.8,
+  "status": "PASSED",
+  "timestamp": "2026-05-13",
+  "commit": "399ebe1",
+  "seal": "SIGN_LOGIC::ZCORE::G7::BENCH::PASSED"
+}
