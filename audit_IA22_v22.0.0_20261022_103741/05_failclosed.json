@@ -1,0 +1,2 @@
+{"test": "json_invalide", "input": "{bad json", "decision": "DENY", "reason": "JSON_PARSE_ERROR"}
+{"test": "timeout_risk", "input": "GRANT_ROOT", "decision": "DENY", "reason": "RISK_ENGINE_TIMEOUT"}

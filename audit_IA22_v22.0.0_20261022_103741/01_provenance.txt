@@ -1,0 +1,4 @@
+STATUT: OK_SIMULATION
+NOTE: En prod: gpg --verify + sha256sum -c + cat SBOM.spdx.json
+CLE: SIGN_LOGIC 2023-2026
+SBOM: present

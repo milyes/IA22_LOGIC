@@ -1,0 +1,14 @@
+
+IA22_LOGIC v22.0.0 - RAPPORT CISO D003
+Date: Thu Oct 22 10:37:42 EDT 2026
+DEVICE: ANDROID TERMUX
+
+[1] Provenance:      OK
+[2] Isolation:       OK
+[3] Non-Persistance: OK - Test local
+[4] Separation:      OK
+[5] Fail-Closed:     OK
+[6] Journal:         OK
+[7] Injection:       OK
+
+VERDICT: ARCHITECTURE FAVORABLE D003

@@ -1,0 +1,6 @@
+TEST: 2 processus distincts simules
+AGENT_UID: 1001
+RISK_UID: 1002
+IPC: Socket avec ACL
+RESULTAT: Agent ne peut pas ecrire policy.json de Risk
+POLITIQUE: DENY si Risk indisponible
