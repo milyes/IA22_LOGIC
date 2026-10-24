@@ -1,0 +1,126 @@
+{
+  "project": "IA22_DZERO_EXEC",
+  "version": "V9",
+  "generated_at": "2026-10-22T01:04:48.226Z",
+  "timeline": [
+    {
+      "id": 1,
+      "title": "Entrée dans le Holo-Lab",
+      "status": "OK",
+      "time": "09:14:02",
+      "description": "Le patient entre dans le laboratoire IA pour une consultation interactive. Authentification biométrique et calibration environnementale.",
+      "biometrics": {
+        "fc": "78 bpm",
+        "tension": "122/79 mmHg",
+        "temp": "36.6°C",
+        "spo2": "98%",
+        "fr": "16/min",
+        "hrv": "62 ms",
+        "stress": "Faible",
+        "note": "Calibrage initial. Aucune anomalie détectée à l'entrée."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Analyse biométrique",
+      "status": "Analyse",
+      "time": "09:14:47",
+      "description": "L'IA capte le rythme cardiaque, tension, température corporelle et paramètres vitaux en temps réel. Scan multi-capteurs.",
+      "biometrics": {
+        "fc": "82 bpm",
+        "tension": "125/81 mmHg",
+        "temp": "36.8°C",
+        "spo2": "97%",
+        "fr": "18/min",
+        "hrv": "54 ms",
+        "stress": "Modéré",
+        "note": "Légère tachycardie liée à l'appréhension. Corrélation contexte Holo-Lab."
+      }
+    },
+    {
+      "id": 3,
+      "title": "Diagnostic initial",
+      "status": "Analyse",
+      "time": "09:15:33",
+      "description": "L’IA propose une analyse approfondie basée sur les premiers relevés. Corrélation croisée des signaux vitaux.",
+      "biometrics": {
+        "fc": "80 bpm",
+        "tension": "124/80 mmHg",
+        "temp": "36.7°C",
+        "spo2": "98%",
+        "fr": "17/min",
+        "hrv": "58 ms",
+        "stress": "Modéré",
+        "note": "Pattern compatible avec fatigue chronique. Score IA: 73% confiance."
+      }
+    },
+    {
+      "id": 4,
+      "title": "Historique médical",
+      "status": "Analyse",
+      "time": "09:16:12",
+      "description": "L'IA compare les données actuelles avec les antécédents médicaux du patient (fatigue récurrente détectée, antécédents Q4 2023).",
+      "biometrics": {
+        "fc": "77 bpm",
+        "tension": "121/78 mmHg",
+        "temp": "36.6°C",
+        "spo2": "98%",
+        "fr": "16/min",
+        "hrv": "65 ms",
+        "stress": "Faible",
+        "note": "Corrélation historique: 3 épisodes similaires / 6 mois. Pas d'aggravation."
+      }
+    },
+    {
+      "id": 5,
+      "title": "Recommandation médicale",
+      "status": "Recommandation",
+      "time": "09:17:05",
+      "description": "L'IA suggère une prise de sang dans les 48h pour affiner le diagnostic. Bilan fer, TSH, vitamine D requis.",
+      "biometrics": {
+        "fc": "76 bpm",
+        "tension": "120/77 mmHg",
+        "temp": "36.5°C",
+        "spo2": "99%",
+        "fr": "15/min",
+        "hrv": "68 ms",
+        "stress": "Faible",
+        "note": "Recommandation NANS-V9: labo partenaire synchronisé. Ordonnance générée."
+      }
+    },
+    {
+      "id": 6,
+      "title": "Modélisation 3D",
+      "status": "OK",
+      "time": "09:18:22",
+      "description": "Projection holographique animée du cœur du patient, avec annotations IA en direct. Rendu volumétrique 120fps.",
+      "biometrics": {
+        "fc": "74 bpm (simulé)",
+        "tension": "—",
+        "temp": "—",
+        "spo2": "99%",
+        "fr": "14/min",
+        "hrv": "72 ms",
+        "stress": "N/A",
+        "note": "Modèle 3D: FE 62%, pas de trouble cinétique. Hologramme stable."
+      }
+    },
+    {
+      "id": 7,
+      "title": "Conclusion",
+      "status": "OK",
+      "time": "09:19:40",
+      "description": "Pas d’anomalie structurelle détectée. Suggestion : surveillance continue pendant 3 jours via bracelet Holo-Link.",
+      "biometrics": {
+        "fc": "75 bpm",
+        "tension": "119/76 mmHg",
+        "temp": "36.6°C",
+        "spo2": "99%",
+        "fr": "15/min",
+        "hrv": "70 ms",
+        "stress": "Faible",
+        "note": "Clôture session V9. Rapport final chiffré envoyé au dossier patient."
+      }
+    }
+  ]
+}

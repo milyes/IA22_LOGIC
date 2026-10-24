@@ -1,0 +1,5 @@
+{
+  "flux": "youtube",
+  "youtube_url": "https://youtu.be/VOTRE_VIDEO_PRIVEE_ID",
+  "peertube_url": "https://peertube.exemple.com/stream/votre_flux"
+}

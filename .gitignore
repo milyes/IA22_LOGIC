@@ -1,0 +1,4 @@
+_VERSIONS/
+*.tmp
+*.log
+.DS_Store
