@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livre Blanc — Déploiement d'une IA Générative Souveraine en Environnement Déconnecté (Air-Gapped)</title>
+  <style>
+    :root {
+      --primary: #0f172a;
+      --primary-light: #1e293b;
+      --accent: #0284c7;
+      --accent-hover: #0369a1;
+      --text: #334155;
+      --text-dark: #0f172a;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --tag-bg: #e0f2fe;
+      --tag-text: #0369a1;
+      --sidebar-width: 280px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      line-height: 1.65;
+    }
+
+    /* Layout */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: var(--sidebar-width);
+      background: var(--primary);
+      color: #f1f5f9;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      overflow-y: auto;
+      padding: 2rem 1.5rem;
+      z-index: 100;
+    }
+
+    .sidebar h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #94a3b8;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 0.5rem;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+    }
+
+    .sidebar-nav li {
+      margin-bottom: 0.4rem;
+    }
+
+    .sidebar-nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.88rem;
+      display: block;
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      transition: all 0.15s ease;
+    }
+
+    .sidebar-nav a:hover {
+      background: var(--primary-light);
+      color: #38bdf8;
+    }
+
+    .sidebar-nav .nav-category {
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-top: 1rem;
+      margin-bottom: 0.2rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Main Content */
+    .content {
+      margin-left: var(--sidebar-width);
+      flex: 1;
+      max-width: 1000px;
+      padding: 3.5rem 4rem;
+      background: var(--card-bg);
+      box-shadow: 0 0 20px rgba(0,0,0,0.03);
+    }
+
+    /* Hero & Titles */
+    .doc-header {
+      margin-bottom: 3.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 2rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.6rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 4px;
+      margin-bottom: 0.8rem;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      color: var(--text-dark);
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: #64748b;
+      margin-bottom: 1rem;
+    }
+
+    .meta {
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    h2 {
+      font-size: 1.65rem;
+      color: var(--text-dark);
+      margin-top: 3rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: var(--text-dark);
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      margin-top: 1.4rem;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+      color: var(--text);
+    }
+
+    strong {
+      color: var(--text-dark);
+    }
+
+    ul, ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.4rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Encart Spécialisé */
+    .callout {
+      background: #f8fafc;
+      border-left: 4px solid var(--accent);
+      padding: 1.3rem 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 6px 6px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.8rem 0;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    /* Diagram / ASCII blocks */
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 1.2rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      font-family: "JetBrains Mono", Consolas, Monaco, monospace;
+    }
+
+    code {
+      font-family: "JetBrains Mono", Consolas, Monaco, monospace;
+      font-size: 0.88em;
+      background: #e2e8f0;
+      color: #0f172a;
+      padding: 0.15rem 0.35rem;
+      border-radius: 3px;
+    }
+
+    pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+
+    /* Sequence Steps */
+    .sequence-step {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1.2rem;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.6rem;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 0.4rem;
+    }
+
+    .step-title {
+      font-weight: 700;
+      color: var(--text-dark);
+      font-size: 1.05rem;
+    }
+
+    .step-subtitle {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Print & Responsive */
+    @media (max-width: 992px) {
+      .sidebar {
+        display: none;
+      }
+      .content {
+        margin-left: 0;
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    @media print {
+      .sidebar {
+        display: none;
+      }
+      .content {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 0;
+        box-shadow: none;
+      }
+      h2 {
+        page-break-before: always;
+      }
+      pre, table, .callout, .sequence-step {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+  <!-- Navigation Latérale -->
+  <aside class="sidebar">
+    <h2>Table des Matières</h2>
+    <ul class="sidebar-nav">
+      <li><a href="#resume-executif">Résumé Exécutif</a></li>
+      
+      <li class="nav-category">Partie I — Conformité</li>
+      <li><a href="#chapitre-1">Chapitre 1 : EU AI Act</a></li>
+      <li><a href="#chapitre-2">Chapitre 2 : RGPD & HDS</a></li>
+      
+      <li class="nav-category">Partie II — Architecture</li>
+      <li><a href="#chapitre-3">Chapitre 3 : HPC & Modèles</a></li>
+      <li><a href="#chapitre-4">Chapitre 4 : Cycle de Vie & RAG</a></li>
+      
+      <li class="nav-category">Partie III — Sécurité</li>
+      <li><a href="#chapitre-5">Chapitre 5 : Isolation & IAM</a></li>
+      <li><a href="#chapitre-6">Chapitre 6 : Adversarial ML</a></li>
+      
+      <li class="nav-category">Action</li>
+      <li><a href="#conclusion">Conclusion & Feuille de Route</a></li>
+    </ul>
+  </aside>
+
+  <!-- Contenu Principal -->
+  <main class="content">
+    <header class="doc-header">
+      <span class="badge">Livre Blanc d'Architecture Stratégique</span>
+      <h1>Déploiement d'une IA Générative Souveraine en Environnement Déconnecté (Air-Gapped)</h1>
+      <p class="subtitle">Conformité réglementaire, ingénierie d'infrastructure HPC et étanchéité de sécurité pour les secteurs critiques.</p>
+      <div class="meta">Public cible : Directions Générales, CTO, RSSI, DPO | Secteurs : Santé, Finance, Défense, Industrie critique</div>
+    </header>
+
+    <!-- Résumé Exécutif -->
+    <section id="resume-executif">
+      <h2>Résumé Exécutif — Synthèse Direction Générale</h2>
+      
+      <h3>Le dilemme de la dépendance numérique</h3>
+      <p>L'intégration de l'intelligence artificielle générative au cœur des processus métiers n'est plus un exercice prospectif ; c'est un impératif de compétitivité. Cependant, le modèle dominant d’IA « as-a-Service », adossé aux grands hyperscalers extra-européens, impose une triple vulnérabilité aux organisations critiques :</p>
+      <ol>
+        <li><strong>Une exposition extraterritoriale</strong> (Cloud Act, FISA 702) incompatible avec le secret des affaires, la conformité HDS et le secret défense.</li>
+        <li><strong>Un risque de fuite de données structurel</strong>, où l'injection de code, de documentation interne ou de données sensibles dans des pipelines tiers crée un vecteur d'exfiltration non maîtrisable.</li>
+        <li><strong>Une dépendance d'accès systémique</strong>, soumise aux interruptions de service, aux révisions unilatérales des conditions d'API et aux politiques de censure des fournisseurs.</li>
+      </ol>
+      <p>Face à cette asymétrie, <strong>le modèle air-gapped (isolation réseau stricte) s'impose comme la seule architecture garantissant la souveraineté effective des données et des modèles.</strong></p>
+
+      <h3>Pourquoi l'air-gap redevient la norme stratégique</h3>
+      <p>Historiquement cantonné aux réseaux classifiés (OT, défense, nucléaire), le cloisonnement total s'étend désormais aux fonctions cognitives de l'entreprise. Deux facteurs majeurs ont rendu cette bascule viable :</p>
+      <ul>
+        <li><strong>La maturité des LLM open-weight</strong> (Mistral, Llama, Falcon) dont les performances égalent ou dépassent les modèles fermés sur les tâches d'entreprise ciblées après affinage ou couplage RAG.</li>
+        <li><strong>L'efficacité des architectures matérielles sur site</strong>, permettant de déployer localement des capacités d'inférence denses (HPC compact, quantisation 4/8-bit avancée) avec une empreinte énergétique rationalisée.</li>
+      </ul>
+
+      <h3>Matrice décisionnelle DG : Cloud public vs IA souveraine Air-Gapped</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>IA Cloud as-a-Service</th>
+            <th>IA Souveraine Déconnectée (Air-Gap)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Périmètre juridique</strong></td>
+            <td>Soumis aux droits tiers & transferts transfrontaliers</td>
+            <td>Juridiction UE exclusive ; conformité RGPD/HDS by design</td>
+          </tr>
+          <tr>
+            <td><strong>Contrôle des flux</strong></td>
+            <td>Télémétrie continue, risques de réentraînement distant</td>
+            <td><strong>Zero-Flux sortant</strong> ; étanchéité totale des secrets d'affaires</td>
+          </tr>
+          <tr>
+            <td><strong>Modèle économique</strong></td>
+            <td>OPEX variable (facturation au token/requête exponentielle)</td>
+            <td>CAPEX prévisible (infra GPU) + OPEX de maintenance maîtrisée</td>
+          </tr>
+          <tr>
+            <td><strong>Disponibilité / Résilience</strong></td>
+            <td>Dépendance aux liaisons WAN et SLAs hébergeurs</td>
+            <td>Autonomie opérationnelle absolue en cas de crise cyber ou rupture réseau</td>
+          </tr>
+          <tr>
+            <td><strong>Auditabilité & Risque</strong></td>
+            <td>Boîte noire fournisseur, audits tiers limités</td>
+            <td>Traçabilité intégrale du code, des poids et des logs d'inférence</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Analyse économique et horizon 3–5 ans</h3>
+      <p>Le déploiement d’un cluster d’inférence et de RAG souverain représente un investissement initial (serveurs dédiés, accélérateurs, ingénierie de sécurisation physique et logique). Néanmoins, pour une organisation traitant des volumes récurrents de requêtes sensibles :</p>
+      <ul>
+        <li><strong>Le point de bascule ROI intervient entre le 14ᵉ et le 22ᵉ mois</strong>, neutralisant les coûts de tokenisation volumique du cloud.</li>
+        <li><strong>Le risque résiduel d'amende réglementaire</strong> (EU AI Act, sanctions RGPD pouvant atteindre 7 % du CA mondial pour non-conformité majeure) est réduit à son strict minimum technique.</li>
+        <li><strong>La valeur patrimoniale</strong> de l'entreprise s'accroît : les bases de connaissances vectorisées et les modèles affinés restent la propriété pleine et entière de l'organisation.</li>
+      </ul>
+
+      <h3>Vision stratégique</h3>
+      <p>L'isolation physique d'une IA n'est pas un frein à la collaboration : c'est un bouclier qui autorise les cas d'usage les plus critiques (analyse de brevets, diagnostics médicaux, scoring financier, arbitrage stratégique) que le Cloud interdit de fait. L'infrastructure IA n'est plus une commodité déléguée, mais le centre de gravité de la souveraineté opérationnelle.</p>
+    </section>
+
+    <!-- Partie I : Conformité -->
+    <section id="chapitre-1">
+      <h2>Partie I — Cadre réglementaire et conformité</h2>
+      <h3>Chapitre 1 — EU AI Act : obligations et alignement en environnement déconnecté</h3>
+      <p>L’entrée en application progressive du règlement européen sur l’intelligence artificielle (<strong>EU AI Act</strong>) impose un changement de paradigme fondamental : l’intelligence artificielle n’est plus seulement traitée comme un outil logiciel classique, mais comme un système socio-technique régulé selon une approche stricte par les risques.</p>
+      <p>Pour les directions juridiques (DPO), techniques (CTO) et de la sécurité (RSSI), le déploiement de modèles génératifs ou prédictifs sur des cas d’usage critiques soulève une friction majeure : <em>comment satisfaire aux exigences strictes de transparence, d’auditabilité et de maîtrise des risques lorsque le système repose sur des API tierces fermées et hébergées hors de l’Union européenne ?</em></p>
+      <p>L’architecture souveraine <em>air-gapped</em> (déconnectée) n'est pas qu'un choix de sécurisation physique : elle constitue un <strong>accélérateur direct de conformité réglementaire</strong>, transformant les contraintes de l’AI Act en garanties vérifiables par conception.</p>
+
+      <h4>1. Qualification et classification des systèmes à haut risque</h4>
+      <p>L’AI Act structure ses obligations autour d'une échelle de risque à quatre niveaux. Dans les secteurs réglementés (santé, énergie, infrastructures critiques, finance, RH), la majorité des déploiements d'IA relève des <strong>systèmes à haut risque (High-Risk AI Systems)</strong> :</p>
+      <ul>
+        <li><strong>Infrastructures critiques et sécurité</strong> : gestion de réseaux électriques, d'eau, de télécommunications ou de transport.</li>
+        <li><strong>Emploi et gestion de la main-d'œuvre</strong> : filtrage algorithmique de candidatures, évaluation de performances, allocation de tâches.</li>
+        <li><strong>Accès aux services essentiels</strong> : évaluation de solvabilité, octroi de crédits, tarification d’assurances santé/vie.</li>
+        <li><strong>Contrôle aux frontières et justice</strong> : vérification d'authenticité documentaire, aide à la décision juridictionnelle.</li>
+      </ul>
+
+      <h4>2. Exigences de gouvernance : documentation, explicabilité et maîtrise des biais</h4>
+      <pre>
+             ┌──────────────────────────────────────────────────────────┐
+             │       Exigences Systèmes Haut Risque (EU AI Act)        │
+             └────────────────────────────┬─────────────────────────────┘
+                                          │
+       ┌──────────────────┬───────────────┴──────────────┬──────────────────┐
+       ▼                  ▼                              ▼                  ▼
+┌──────────────┐   ┌──────────────┐              ┌──────────────┐   ┌──────────────┐
+│  Qualité des │   │ Documentation│              │ Journalisation│   │ Contrôle     │
+│   Données    │   │  Technique   │              │ Automatique  │   │ Humain (HITL)│
+│ (Art. 10)    │   │  (Art. 11)   │              │ (Art. 12)    │   │ (Art. 14)    │
+└──────────────┘   └──────────────┘              └──────────────┘   └──────────────┘
+      </pre>
+
+      <p><strong>Gouvernance et qualité des données (Art. 10) :</strong> En mode souverain, les données injectées proviennent exclusivement du périmètre interne audité. Le pipeline de vectorisation garantit la provenance exacte (<em>data lineage</em>) de chaque fragment documentaire, à l'opposé de l'opacité totale des jeux de pré-entraînement des LLM propriétaires.</p>
+      <p><strong>Documentation technique (Art. 11 & Annexe IV) :</strong> L'environnement fermé permet de figer des versions déterministes du modèle (<code>v1.0.0</code>, hash SHA-256 des poids), assurant que la documentation technique décrit rigoureusement le système effectivement exécuté.</p>
+      <p><strong>Supervision humaine (Art. 14) :</strong> Le déploiement local permet d'imposer des mécanismes d'inspection au runtime : extraction des scores de confiance (<em>logits</em>), calcul des attributions de tokens et arrêt forcé des inférences (<em>kill switch</em> matériel ou logiciel) sans dépendre d'un tiers distant.</p>
+
+      <h4>3. Traçabilité, journalisation et auditabilité en environnement fermé</h4>
+      <p>L'Article 12 de l'AI Act impose une <strong>journalisation automatique des événements</strong> tout au long du cycle de vie du système :</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Critère de traçabilité (Art. 12)</th>
+            <th>Limites de l'approche API Cloud</th>
+            <th>Réalisation en architecture Air-Gapped</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Période d'enregistrement</strong></td>
+            <td>Dépendante de l'éditeur (souvent 30 jours)</td>
+            <td>Rétention arbitraire (1 à 10 ans) sur stockage WORM interne</td>
+          </tr>
+          <tr>
+            <td><strong>Intégrité des prompts</strong></td>
+            <td>Risque de fuite si journalisé dans le cloud</td>
+            <td>Journalisation locale chiffrée, liée à l'identité cryptographique de l'agent</td>
+          </tr>
+          <tr>
+            <td><strong>Stabilité des poids</strong></td>
+            <td>Mise à jour silencieuse côté fournisseur (<em>drift</em>)</td>
+            <td>Fixité absolue des poids ; empreinte cryptographique vérifiée au boot</td>
+          </tr>
+          <tr>
+            <td><strong>Audit post-incident</strong></td>
+            <td>Dépendance aux traces concédées par le tiers</td>
+            <td>Extraction immédiate des logs système, GPU, embeddings et activations</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>4. La « Conformité par Conception » (Compliance by Design) permise par l'Air-Gap</h4>
+      <p>L'isolation réseau résout nativement plusieurs des obligations les plus complexes :</p>
+      <ul>
+        <li><strong>Suppression radicale de la télémétrie non maîtrisée :</strong> L'air-gap coupe physiquement tout vecteur d'exfiltration ou de réentraînement à l'insu de l'organisation.</li>
+        <li><strong>Immunité contre le Model Drift :</strong> Contrairement aux API SaaS dont les checkpoints changent sans préavis, les modèles locaux restent strictement identiques, garantissant des benchmarks stables.</li>
+        <li><strong>Alignement direct avec l'Article 15 (Cybersécurité) :</strong> La suppression de toute exposition Internet réduit la surface d'attaque externe à néant.</li>
+      </ul>
+    </section>
+
+    <section id="chapitre-2">
+      <h3>Chapitre 2 — RGPD : souvera
